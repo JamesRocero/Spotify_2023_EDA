@@ -8,4 +8,4 @@ import seaborn as sns
 import calendar
 ```
 ### 2. Loading Data Set
-##### Markup: * Bullet List This code reads a CSV file named spotify-2023.csv into a pandas DataFrame called df_spotify.
+* Bullet List This code reads a CSV file named spotify-2023.csv into a pandas DataFrame called df_spotify.
