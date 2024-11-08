@@ -8,5 +8,9 @@ import seaborn as sns
 import calendar
 ```
 ### 2. Loading Data Set
-###### * This code reads a CSV file named spotify-2023.csv into a pandas DataFrame called df_spotify.
+* This code reads a CSV file named spotify-2023.csv into a pandas DataFrame called df_spotify.
+``` Python
+df_spotify = pd.read_csv('spotify-2023.csv', encoding='ISO-8859-1')
+df_spotify
+```
 
