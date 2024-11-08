@@ -12,7 +12,8 @@ import calendar
 ``` Python
 df_spotify = pd.read_csv('spotify-2023.csv', encoding='ISO-8859-1')
 df_spotify
-
+```
+``` Python
 track_name	artist(s)_name	artist_count	released_year	released_month	released_day	in_spotify_playlists	in_spotify_charts	streams	in_apple_playlists	...	bpm	key	mode	danceability_%	valence_%	energy_%	acousticness_%	instrumentalness_%	liveness_%	speechiness_%
 0	Seven (feat. Latto) (Explicit Ver.)	Latto, Jung Kook	2	2023	7	14	553	147	141381703	43	...	125	B	Major	80	89	83	31	0	8	4
 1	LALA	Myke Towers	1	2023	3	23	1474	48	133716286	48	...	92	C#	Major	71	61	74	7	0	10	4
