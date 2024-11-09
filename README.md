@@ -1,11 +1,8 @@
 # Spotify_2023_EDA
-<details>
-           <summary>Introduction</summary>
-            - [Overview of the Data Set](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#3-overview-of-the-data-set)
-         </details>
-
-
-- [Overview of the Data Set](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#3-overview-of-the-data-set)
+## Table of Contents
+- [1. Importing Necessary Libraries]
+- [2. Loading Data Set]
+- [3. Overview of the Data Set](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#3-overview-of-the-data-set)
 
 ### 1. Importing Necessary Libraries
 ``` Python
