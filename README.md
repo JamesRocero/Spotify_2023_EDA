@@ -44,4 +44,34 @@ print(missing_values[missing_values > 0])
 ![image](https://github.com/user-attachments/assets/4f6bb11e-26eb-40b1-b416-d0c638b6d4b9)
 
 #### For Identical Values
+``` Python
+Identical_tracks = pd.DataFrame(df_spotify[df_spotify.duplicated(['track_name','artist(s)_name'])])
+
+print("The identcal tracks that has similar values are: ")
+print(Identical_tracks)
+```
+![image](https://github.com/user-attachments/assets/6314e4b3-9701-40a6-a694-3f60a43add3b)
+
+##### The code's output above, indicates that some of the tracks are identical to one another. The songs "Take My Breath," "About Damn Time," "SNAP," and "SPIT ON MY FACE!" are such.
+
+##### Unnecessary tracks must be eliminated, especially those with improper outputs.
+
+#### "SPIT IN MY FACE!"
+``` Python
+df_spotify[df_spotify['track_name'] == 'SPIT IN MY FACE!']
+```
+![image](https://github.com/user-attachments/assets/91b17c27-aa79-4222-b195-28b242fbfe0d)
+
+##### Additional investigation has revealed that the right bpm and key for "SPIT IN MY FACE!" is 166. Its key is also C#, not G#.
+##### With this, we need to remove the one that is incorrect.
+
+``` Python
+df_spotify = df_spotify.drop(345)
+df_spotify[df_spotify['track_name'] == 'SPIT IN MY FACE!']
+```
+![image](https://github.com/user-attachments/assets/7a93d3c1-c4b8-41ff-b7d1-cc6fa4aaf39b)
+
+#### "Take My Breath"
+
+
 
