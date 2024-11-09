@@ -6,7 +6,7 @@
 - [4. Data Descriptive Statistics](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#4-data-descriptive-statistics)
 - [5. Top Performers](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#5-top-performers)
 - [6. Temporal Trends](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#6-temporal-trends)
-- [7. Genre and Music Characteristic](
+- [7. Genre and Music Characteristic](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#7-genre-and-music-characteristic)
 - [8. Platform Popularity](
 - [9. Advanced Analysis](
 
