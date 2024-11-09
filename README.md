@@ -141,28 +141,28 @@ df_spotify.iloc[574]
 ![image](https://github.com/user-attachments/assets/1456899e-97fd-478e-9878-ceb43760817d)
 
 ### Data Descriptive Statistics
-- Total streams of the most streamed spotify song
+#### Total streams of the most streamed spotify song
 ``` Python
 "The 2023 Spotify song that has received the most streams overall is " + str(df_spotify['streams'].sum())
 ```
 
 ![image](https://github.com/user-attachments/assets/bda9f782-ccbb-41df-8b7a-c478f043eaf1)
 
-- Mean of the streams column
+#### Mean of the streams column
 ``` Python
 "In 2023, the average number of streams for the most popular songs on Spotify is {}".format(df_spotify['streams'].mean())
 ```
 
 ![image](https://github.com/user-attachments/assets/a9234411-e3c6-4b8c-bf3c-7579168e51e5)
 
-- Median of the streams column
+#### Median of the streams column
 ``` Python
 "The 2023 median number of plays for the most popular songs on Spotify is {}".format(df_spotify['streams'].median())
 ```
 
 ![image](https://github.com/user-attachments/assets/6c0cda7b-0dcb-4e90-9c64-158080148ce9)
 
-- Standard deviation of the streams column
+#### Standard deviation of the streams column
 ``` Python
 std_dev_streams = df_spotify['streams'].std()
 "The 2023 Spotify song with the most streams, as measured by the standard deviation of total streams: {}".format(std_dev_streams)
@@ -170,10 +170,94 @@ std_dev_streams = df_spotify['streams'].std()
 
 ![image](https://github.com/user-attachments/assets/d3776a50-ade9-4874-bbc5-d74078e633bc)
 
-- Obtains the title's top ten by using.head(10) and the amount of streams.
+#### Obtains the title's top ten by using.head(10) and the amount of streams.
 ``` Python
 df_spotify.loc[:, ['track_name', 'streams']].nlargest(10, 'streams')
 ```
+
+![image](https://github.com/user-attachments/assets/4a1e5e96-eaaa-4a56-83b5-983821d829e8)
+
+- Create a Histogram Plot
+``` Python
+# Plot the histogram
+ax = sns.histplot(data=df_spotify, x='streams', color='green', element="bars")
+ax.set_title('Distribution of Total Streams')
+
+# Set grid style
+sns.set_style("whitegrid", {'grid.linestyle': '--'})
+
+# Label x and y axes
+ax.set_xlabel('Streams (Billions)')
+ax.set_ylabel('Track Count')
+```
+
+![image](https://github.com/user-attachments/assets/79112410-31a1-4001-908d-2d6d0c73c7e1)
+
+#### Distribution of released_year and artist_count
+- This code creates a distribution plot of Spotify songs' release years, customizing the plot's appearance.
+``` Python
+# Plot the distribution with updated characteristics
+ryd = sns.displot(
+    data=df_spotify,
+    x='released_year',
+    color='red',
+    discrete=True,
+    aspect=2.5,
+    height=5
+)
+ryd.set(title="Distribution of Most Streamed Spotify Songs of 2023 by Release Year")
+
+# Access the underlying axes and modify grid and axes properties
+ax = ryd.axes[0, 0]
+
+# Modify the grid: Make it thicker and change the style
+ax.grid(True, axis="both", color="black", linestyle='-', linewidth=1.2, alpha=0.3)
+
+# Change the axes' properties
+ax.set_xlabel('Release Year of Tracks', fontsize=12, color='darkgreen')
+ax.set_ylabel('Track Count', fontsize=12, color='darkgreen')
+
+# Change axis limits if needed
+ax.set_xlim(2015, 2023)  # Example: setting custom x-axis limits
+ax.set_ylim(0, 100)      # Example: setting custom y-axis limits
+```
+
+![image](https://github.com/user-attachments/assets/0cb4606a-c575-4ee1-a367-6286e22a3146)
+
+- The code creates a visually appealing distribution plot that shows the number of credited artists per track in the df_spotify dataset.
+``` Python
+# Set the figure size and style for the plot
+plt.figure(figsize=(12, 6))
+
+# Create a displot with updated characteristics for the 'artist_count' distribution
+ac = sns.displot(
+    data=df_spotify,
+    x='artist_count',
+    color='yellow',      # Use a new color for the bars
+    discrete=True,
+    aspect=2,                # Adjust aspect ratio
+    height=5                 # Set plot height
+)
+ac.set(title="Distribution of Credited Artists per Track")
+
+# Apply the white background style
+sns.set_style("white")
+
+# Access the axes and modify grid properties
+ax = ac.axes[0, 0]  # Access the primary axis
+ax.grid(True, axis="y", color="gray", linestyle="--", linewidth=0.8, alpha=0.6)
+
+# Set axis labels with modified font sizes and colors
+plt.xlabel('Number of Credited Artists', fontsize=12, color='darkblue')
+plt.ylabel('Track Count', fontsize=12, color='darkblue')
+
+# Show the plot
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/bbfd9d19-fe2d-4f09-ac85-cfbf09e773f4)
+
+### Top Performers
 
 
 
