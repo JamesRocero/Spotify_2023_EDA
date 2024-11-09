@@ -298,6 +298,30 @@ df_spotify.sort_values(by='streams', ascending=False).loc[:, ['track_name', 'art
 
 ![image](https://github.com/user-attachments/assets/b322bb90-5845-498f-8821-61c1a6e25163)
 
+- Create a Bar Plot to better visualize
+  
+``` Python
+# Sort and select the top 5 tracks based on streams
+top_tracks = df_spotify.sort_values(by='streams', ascending=False).head(5)
+
+# Plotting
+plt.figure(figsize=(10, 6))
+sns.barplot(data=top_tracks, x='streams', 
+            y=top_tracks['track_name'] + " - " + top_tracks['artist_name'],
+            color="skyblue")  # Removed palette and set a single color
+
+# Labels and title
+plt.xlabel("Streams", fontsize=12)
+plt.ylabel("Track - Artist", fontsize=12)
+plt.title("Top 5 Most Streamed Tracks on Spotify", fontsize=14)
+plt.xticks(fontsize=10)
+plt.yticks(fontsize=10)
+plt.tight_layout()
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/da8993ff-b5f1-4815-8230-8098b6da99b8)
+
 - This code splits the artist(s)_name column into a list of individual artist names by using a lambda function in combination with the apply() method. Instead of directly using str.split(), it applies a custom split operation on each value in the column, separating the names by commas. The result is a new column where each entry is a list of artist names.
 
 ``` Python
