@@ -52,12 +52,16 @@ df_spotify.tail()
 ```
 ![image](https://github.com/user-attachments/assets/084f45f5-b33d-466c-9350-56a28a3337d6)
 
+---
+
 #### Checking the Data
 - Show the basic information of the data
 ```Python
 df_spotify.info()
 ```
 ![image](https://github.com/user-attachments/assets/388df24a-46cc-40db-aca8-a0c9f9f2c189)
+
+---
 
 #### Missing Values
 ``` Python
