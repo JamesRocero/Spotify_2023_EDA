@@ -13,6 +13,13 @@
 ---
 
 ### 1. Importing Necessary Libraries
+
+- numpy: Handles efficient numerical operations, useful for statistical calculations in data analysis.
+- pandas: Manages and manipulates structured data, enabling easy sorting and selection for analysis.
+- matplotlib.pyplot: Provides basic plotting functions with full customization, ideal for creating detailed visualizations.
+- seaborn: Simplifies statistical plotting with built-in themes, perfect for visually appealing, easy-to-read charts.
+- calendar: Offers date-related functions, helpful when analyzing or labeling data by months or days.
+  
 ``` Python
 import numpy as np
 import pandas as pd
