@@ -8,7 +8,7 @@
 - [6. Temporal Trends](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#6-temporal-trends)
 - [7. Genre and Music Characteristic](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#7-genre-and-music-characteristic)
 - [8. Platform Popularity](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#8-platform-popularity)
-- [9. Advanced Analysis](
+- [9. Advanced Analysis](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#9-advanced-analysis)
 
 ### 1. Importing Necessary Libraries
 ``` Python
