@@ -15,7 +15,7 @@ df_spotify
 ```
 ![image](https://github.com/user-attachments/assets/02fed677-2962-43e3-8d22-5d8eedcf6807)
 
-###### After loading the data above, the df_spotify DataFrame is displayed, which will show the contents of the file.
+##### After loading the data above, the df_spotify DataFrame is displayed, which will show the contents of the file.
   
 ### 3. Overview of the Data Set
 ``` Python
