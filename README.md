@@ -1,6 +1,6 @@
 # Spotify_2023_EDA
 ## Table of Contents
-- [1. Importing Necessary Libraries]
+- [1. Importing Necessary Libraries](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#1-importing-necessary-libraries)
 - [2. Loading Data Set]
 - [3. Overview of the Data Set](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#3-overview-of-the-data-set)
 
