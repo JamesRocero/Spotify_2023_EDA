@@ -140,7 +140,7 @@ df_spotify.iloc[574]
 
 ![image](https://github.com/user-attachments/assets/1456899e-97fd-478e-9878-ceb43760817d)
 
-### Data Descriptive Statistics
+### 5. Data Descriptive Statistics
 #### Total streams of the most streamed spotify song
 ``` Python
 "The 2023 Spotify song that has received the most streams overall is " + str(df_spotify['streams'].sum())
@@ -257,7 +257,7 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/bbfd9d19-fe2d-4f09-ac85-cfbf09e773f4)
 
-### Top Performers
+### 6. Top Performers
 ##### The top 5 most streamed tracks (highest number of streams)
 - This code sorts the df_spotify dataset by the 'streams' column in descending order and then selects the 'track_name', 'artist(s)_name', and 'streams' columns. It displays the first 5 rows of the sorted data, showing the top tracks with the highest number of streams.
 ``` Python
@@ -322,7 +322,7 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/d6a21b43-312d-4e47-afa7-4fb667a675d9)
 
-### Temporal Trends
+### 7. Temporal Trends
 #### Number of tracks released per year
 ``` Python
 # Count the number of tracks released each year
@@ -391,7 +391,7 @@ plt.show()
 ##### January, May, and June saw the highest number of music released per month.
 ##### We may observe that the quantity of tracks released in a given year or month does not follow any trends.
 
-### Genre and Music Characteristic
+### 8. Genre and Music Characteristic
 #### Correlation between streams and musical attributes
 
 ``` Python
@@ -418,7 +418,7 @@ plt.show()
 
 ##### Using cluster map, we can see the correlation between the streams and musical attributes
 
-### Platform Popularity
+### 9. Platform Popularity
 
 
 
