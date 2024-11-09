@@ -115,6 +115,31 @@ df_spotify[df_spotify['track_name'] == 'SNAP']
 ![image](https://github.com/user-attachments/assets/fba991e3-74e6-41f5-9d72-72da6523b6ee)
 
 #### Data Cleaning
+- For streams
+``` Python
+df_spotify['streams'] = df_spotify['streams'].apply(pd.to_numeric, errors='coerce')
+df_spotify['streams']
+```
+![image](https://github.com/user-attachments/assets/9677e352-c20c-49d5-b945-46e95fcab4b6)
+
+##### This process ensures that all values in the streams column are of numeric type, allowing for proper analysis or calculations, such as aggregations or sorting.
+##### The value in row 574 is changed to nan, making it a missing value. We must store the updated value in that row after determining the streams' values.
+
+``` Python
+df_spotify.iloc[574, df_spotify.columns.get_loc('streams')] = 227373748
+df_spotify.iloc[574, df_spotify.columns.get_loc('streams')]
+```
+![image](https://github.com/user-attachments/assets/af64bdf2-48c5-4c81-ac80-b17760b15b17)
+
+##### This code updates the number of streams for a specific track (row 574) in the streams column and then checks the updated value.
+
+- Check if the missing values were properly replaced/fixed.
+``` Python
+df_spotify.iloc[574]
+```
+
+### Data Descriptive Statistics
+
 
 
 
