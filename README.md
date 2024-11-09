@@ -72,6 +72,53 @@ df_spotify[df_spotify['track_name'] == 'SPIT IN MY FACE!']
 ![image](https://github.com/user-attachments/assets/7a93d3c1-c4b8-41ff-b7d1-cc6fa4aaf39b)
 
 #### "Take My Breath"
+``` Python
+df_spotify[df_spotify['track_name'] == 'Take My Breath']
+```
+![image](https://github.com/user-attachments/assets/c27afd47-b37b-49a6-8a0f-0093963e73f7)
+
+##### The correct key for "Take My Breath" is G#, not A#, according to further examination.
+##### With this, we must eliminate the inaccurate one.
+
+``` Python
+df_spotify = df_spotify.drop(512)
+df_spotify[df_spotify['track_name'] == 'Take My Breath']
+```
+![image](https://github.com/user-attachments/assets/a8a7da50-6a0a-4b9d-b6de-4a6a1049e50d)
+
+#### "About Damn Time"
+``` Python
+df_spotify[df_spotify['track_name'] == 'About Damn Time']
+```
+![image](https://github.com/user-attachments/assets/abeadf3d-4bfc-4fb7-b072-26b240f296e7)
+
+##### 'About Damn Time' was released on April 14, 2022, in response to further investigations.
+##### The one with the correct release date should be retained.
+
+``` Python
+df_spotify = df_spotify.drop(372)
+df_spotify[df_spotify['track_name'] == 'About Damn Time']
+```
+![image](https://github.com/user-attachments/assets/a12b441e-b191-4a53-a712-cf6beb924057)
+
+#### "SNAP"
+``` Python
+df_spotify[df_spotify['track_name'] == 'SNAP']
+```
+![image](https://github.com/user-attachments/assets/e50c9d73-d565-41eb-886d-858e3e2c72da)
+
+##### We should just maintain the most recent one (most streams) since the information is same.
+``` Python
+df_spotify = df_spotify.drop(873)
+df_spotify[df_spotify['track_name'] == 'SNAP']
+```
+![image](https://github.com/user-attachments/assets/fba991e3-74e6-41f5-9d72-72da6523b6ee)
+
+#### Data Cleaning
+
+
+
+
 
 
 
