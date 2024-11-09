@@ -1,8 +1,11 @@
 # Spotify_2023_EDA
-<details>
-           <summary>Title 1</summary>
-           <p>Content 1 Content 1 Content 1 Content 1 Content 1</p>
+
+<details> Table of Contents:
+           <summary>Introduction</summary>
+           <p> 1. Importing Necessary Libraries
+           2. Loading Data Set </p>
          </details>
+         
 ### 1. Importing Necessary Libraries
 ``` Python
 import numpy as np
