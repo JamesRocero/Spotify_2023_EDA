@@ -17,5 +17,13 @@ df_spotify
 
 - After loading the data above, the df_spotify DataFrame is displayed, which will show the contents of the file.
   
-<summary> 3. Overview of The Data Set </summary>
+### 3. Overview of the Data Set
+``` Python
+df_spotify.head()
+```
+![image](https://github.com/user-attachments/assets/92020afd-d4a7-42c0-9d2f-45fb2fdc0f77)
+``` Python
+df_spotify.tail()
+```
+![image](https://github.com/user-attachments/assets/084f45f5-b33d-466c-9350-56a28a3337d6)
 
