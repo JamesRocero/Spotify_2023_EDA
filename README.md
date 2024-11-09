@@ -2,8 +2,7 @@
 
 <details> Table of Contents:
            <summary>Introduction</summary>
-           <p> 1. Importing Necessary Libraries
-           2. Loading Data Set </p>
+           <p> 1. Importing Necessary Libraries; 2. Loading Data Set </p>
          </details>
          
 ### 1. Importing Necessary Libraries
