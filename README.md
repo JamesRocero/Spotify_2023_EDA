@@ -1,10 +1,7 @@
 # Spotify_2023_EDA
 
-<details> 
-           <summary>Importing Necessary Libraries</summary>
-           <p> [1. Importing Necessary Libraries](1. Importing Necessary Libraries "1. Importing Necessary Libraries") </p>
-         </details>
-         
+[1. Importing Necessary Libraries](1. Importing Necessary Libraries "1. Importing Necessary Libraries")
+
 ### 1. Importing Necessary Libraries
 ``` Python
 import numpy as np
