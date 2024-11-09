@@ -1,6 +1,6 @@
 # Spotify_2023_EDA
 
-[1. Importing Necessary Libraries](###1. Importing Necessary Libraries "1. Importing Necessary Libraries")
+[Go to 1. Importing Necessary Libraries](#1.-importing-necessary-libraries)
 
 ### 1. Importing Necessary Libraries
 ``` Python
