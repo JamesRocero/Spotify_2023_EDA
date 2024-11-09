@@ -138,7 +138,42 @@ df_spotify.iloc[574, df_spotify.columns.get_loc('streams')]
 df_spotify.iloc[574]
 ```
 
+![image](https://github.com/user-attachments/assets/1456899e-97fd-478e-9878-ceb43760817d)
+
 ### Data Descriptive Statistics
+- Total streams of the most streamed spotify song
+``` Python
+"The 2023 Spotify song that has received the most streams overall is " + str(df_spotify['streams'].sum())
+```
+
+![image](https://github.com/user-attachments/assets/bda9f782-ccbb-41df-8b7a-c478f043eaf1)
+
+- Mean of the streams column
+``` Python
+"In 2023, the average number of streams for the most popular songs on Spotify is {}".format(df_spotify['streams'].mean())
+```
+
+![image](https://github.com/user-attachments/assets/a9234411-e3c6-4b8c-bf3c-7579168e51e5)
+
+- Median of the streams column
+``` Python
+"The 2023 median number of plays for the most popular songs on Spotify is {}".format(df_spotify['streams'].median())
+```
+
+![image](https://github.com/user-attachments/assets/6c0cda7b-0dcb-4e90-9c64-158080148ce9)
+
+- Standard deviation of the streams column
+``` Python
+std_dev_streams = df_spotify['streams'].std()
+"The 2023 Spotify song with the most streams, as measured by the standard deviation of total streams: {}".format(std_dev_streams)
+```
+
+![image](https://github.com/user-attachments/assets/d3776a50-ade9-4874-bbc5-d74078e633bc)
+
+- Obtains the title's top ten by using.head(10) and the amount of streams.
+``` Python
+df_spotify.loc[:, ['track_name', 'streams']].nlargest(10, 'streams')
+```
 
 
 
