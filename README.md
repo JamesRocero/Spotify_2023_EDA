@@ -1,8 +1,8 @@
 # Spotify_2023_EDA
 
-<details> Table of Contents:
-           <summary>Introduction</summary>
-           <p> 1. Importing Necessary Libraries; 2. Loading Data Set </p>
+<details> 
+           <summary>Importing Necessary Libraries</summary>
+           <p> [1. Importing Necessary Libraries](1. Importing Necessary Libraries "1. Importing Necessary Libraries") </p>
          </details>
          
 ### 1. Importing Necessary Libraries
