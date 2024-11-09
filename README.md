@@ -472,16 +472,103 @@ plt.show()
 ### 9. Advanced Analysis
 
 #### Patterns between songs in the same key or mode (Major vs. Minor)
+``` Python
+# Count the number of tracks for each key and exclude 'Missing'
+key_summary = df_spotify.groupby('key').size().reset_index(name='number_of_tracks')
+key_summary = key_summary[key_summary['key'] != 'Missing']
 
+# Sort by key alphabetically
+key_summary = key_summary.sort_values('key')
 
+key_summary
+```
+![image](https://github.com/user-attachments/assets/9627f063-665e-4ba3-b888-f55fc2f346a3)
 
+- Create a bar plot based on the key summary
+``` Python
+# Count the number of tracks for each key and exclude 'Missing'
+key_summary = df_spotify.groupby('key').size().reset_index(name='number_of_tracks')
+key_summary = key_summary[key_summary['key'] != 'Missing']
 
+# Plot with hue set to 'x' to avoid FutureWarning
+plt.figure(figsize=(10, 6))
+sns.barplot(x='key', y='number_of_tracks', data=key_summary, hue='key', palette='viridis', legend=False)
 
+# Add values on top of each bar
+for p in plt.gca().patches:
+    plt.text(p.get_x() + p.get_width() / 2., p.get_height() + 0.1, str(int(p.get_height())), 
+             ha='center', fontsize=12)
 
+plt.title('Number of Tracks by Key')
+plt.xlabel('Key')
+plt.ylabel('Number of Tracks')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
 
+![image](https://github.com/user-attachments/assets/9839f11d-d863-406a-a9d5-d9fc4daed4c0)
 
+##### As we can see, the most frequently utilized tracks are in the keys C#, G, B, and both F and G#
 
+#### Average streams for each mode
+``` Python
+# Calculate the average streams for each mode (Major vs Minor)
+mode_streams = df_spotify.groupby('mode')['streams'].mean()
 
+# Create a bar plot for the average streams of Major vs Minor tracks
+plt.figure(figsize=(8, 6))
+sns.barplot(x=mode_streams.index, y=mode_streams.values, hue=mode_streams.index, palette='pastel', legend=False)
 
+# Add title and labels with exact values
+plt.title('Average Streams for Major vs Minor Tracks', fontsize=16)
+plt.xlabel('Mode', fontsize=12)
+plt.ylabel('Average Streams', fontsize=12)
 
+# Display the exact average stream values on the plot
+for i, v in enumerate(mode_streams.values):
+    plt.text(i, v + 1000000, f'{v:.0f}', ha='center', fontsize=12)
 
+# Show the plot
+plt.tight_layout()
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/47c3e1d7-c4e2-4ce4-bfc8-47d2841d97ed)
+
+##### We can see above that Major tracks are greater than Minor tracks
+
+#### Most frequent artists in different platform charts
+- Make a bar plot
+``` Python
+# List of platform-related columns
+platform_columns = ['in_spotify_charts', 'in_apple_charts', 'in_deezer_charts', 'in_shazam_charts']
+
+# Ensure numeric columns for platforms and calculate total occurrences for each artist
+df_spotify[platform_columns] = df_spotify[platform_columns].apply(pd.to_numeric, errors='coerce')
+artist_chart_data = df_spotify.groupby('artist_name')[platform_columns].sum()
+artist_chart_data['total_occurrences'] = artist_chart_data.sum(axis=1)
+
+# Sort and select top artists based on total occurrences
+top_artists_chart_data = artist_chart_data.sort_values('total_occurrences', ascending=False).head()
+
+# Plotting
+plt.figure(figsize=(10, 6))
+sns.barplot(y='artist_name', x='total_occurrences', data=top_artists_chart_data, palette='viridis', hue='artist_name')
+
+# Add labels and values
+plt.title('Top Artists by Total Chart Occurrences', fontsize=16)
+plt.xlabel('Total Chart Occurrences', fontsize=12)
+plt.ylabel('Artist Name', fontsize=12)
+
+# Display values on the bars
+for i, value in enumerate(top_artists_chart_data['total_occurrences']):
+    plt.text(value + 0.1, i, f'{value:.0f}', va='center', fontsize=12)
+
+plt.tight_layout()
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/f9deadd8-3012-4957-a108-77d925320e72)
+
+##### It is shown in the graph the artists that consistently appear in more playlists or charts.
+##### The plot shown here is the Total Chart Occurrences from all the playlist or charts.
