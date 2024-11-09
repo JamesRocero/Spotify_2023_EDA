@@ -10,6 +10,7 @@
 - [8. Platform Popularity](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#8-platform-popularity)
 - [9. Advanced Analysis](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#9-advanced-analysis)
 
+---
 ### 1. Importing Necessary Libraries
 ``` Python
 import numpy as np
