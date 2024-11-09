@@ -258,6 +258,172 @@ plt.show()
 ![image](https://github.com/user-attachments/assets/bbfd9d19-fe2d-4f09-ac85-cfbf09e773f4)
 
 ### Top Performers
+##### The top 5 most streamed tracks (highest number of streams)
+- This code sorts the df_spotify dataset by the 'streams' column in descending order and then selects the 'track_name', 'artist(s)_name', and 'streams' columns. It displays the first 5 rows of the sorted data, showing the top tracks with the highest number of streams.
+``` Python
+# Sort the data and display the first 5 rows directly
+df_spotify.sort_values(by='streams', ascending=False).loc[:, ['track_name', 'artist(s)_name', 'streams']].head()
+```
+
+![image](https://github.com/user-attachments/assets/b322bb90-5845-498f-8821-61c1a6e25163)
+
+- This code splits the artist(s)_name column into a list of individual artist names by using a lambda function in combination with the apply() method. Instead of directly using str.split(), it applies a custom split operation on each value in the column, separating the names by commas. The result is a new column where each entry is a list of artist names.
+
+``` Python
+# Split the 'artist(s)_name' into a list without using 'str.split' directly
+df_spotify['artist(s)_name'] = df_spotify['artist(s)_name'].apply(lambda x: x.split(','))
+df_spotify['artist(s)_name']
+```
+
+![image](https://github.com/user-attachments/assets/6d5e974e-6106-42ed-888f-741826f53d38)
+
+``` Python
+# Explode the 'artist(s)_name' column and reset the index for a cleaner result
+df_spotify = df_spotify.dropna(subset=['artist(s)_name']).reset_index(drop=True)
+df_spotify['artist(s)_name'] = df_spotify['artist(s)_name'].apply(lambda x: x.strip() if isinstance(x, str) else x)
+df_spotify = df_spotify.explode('artist(s)_name')
+df_spotify
+```
+
+![image](https://github.com/user-attachments/assets/0eab49c2-5d8e-4c99-8b41-3ab3b452e85f)
+
+##### This code above processes the df_spotify DataFrame by removing rows with missing artist names, cleaning up spaces, and then exploding the artist(s)_name column so each artist has its own row. The index is reset afterward for a cleaner structure.
+
+- Rewrite the artist(s)_name attribute to simply artist_name.
+``` Python
+# Drop the 'artist_count' column and rename 'artist(s)_name' to 'artist_name'
+df_spotify.drop(columns='artist_count', inplace=True)
+df_spotify['artist_name'] = df_spotify.pop('artist(s)_name')
+```
+
+#### The top 5 most frequent artists based on the number of tracks in the data set
+- Create a bar plot
+``` Python
+# Get the top 5 most frequent artists
+top_artists = df_spotify.groupby('artist_name').size().nlargest(5)
+
+# Create a bar plot for the top 5 artists
+plt.figure(figsize=(10, 6))
+sns.barplot(x=top_artists.index, y=top_artists.values, hue=top_artists.index, palette='viridis', legend=False)
+
+# Add labels and title
+plt.title('Top 5 Most Frequent Artists', fontsize=16)
+plt.xlabel('Artist Name', fontsize=12)
+plt.ylabel('Number of Tracks', fontsize=12)
+
+# Rotate x-axis labels for better readability
+plt.xticks(rotation=45, ha='right')
+
+# Display the plot
+print (top_artists)
+plt.tight_layout()
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/d6a21b43-312d-4e47-afa7-4fb667a675d9)
+
+### Temporal Trends
+#### Number of tracks released per year
+``` Python
+# Count the number of tracks released each year
+year_counts = df_spotify['released_year'].value_counts().sort_index()
+
+# Create a barplot instead of displot
+sns.barplot(
+    x=year_counts.index,
+    y=year_counts.values,
+    color='lightblue'
+)
+
+# Customize the plot labels and title
+plt.xlabel('Release Year')
+plt.ylabel('Number of Tracks Released')
+plt.title('Number of Tracks Released Per Year')
+
+# Rotate x-axis labels to prevent overlap and show every other year
+plt.xticks(
+    ticks=range(0, len(year_counts), 2),  # Show every other year
+    labels=year_counts.index[::2],       # Display only every second year
+    rotation=45                           # Rotate for better readability
+)
+
+# Display the plot
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/964777e4-14cf-402e-8a67-9d6a2e1f8a05)
+
+##### The greatest amount of tracks were released between 2020 and 2022; this could have been caused by the impact of the pandemic.
+
+#### Number of tracks released per month
+``` Python
+# Count the number of tracks released each month
+month_counts = df_spotify['released_month'].value_counts().sort_index()
+
+# Create a barplot instead of displot
+sns.barplot(
+    x=month_counts.index,
+    y=month_counts.values,
+    color='lightblue'
+)
+
+# Customize the plot labels and title
+plt.xlabel('Months')
+plt.ylabel('Number of Tracks Released')
+plt.title('Number of Tracks Released Per Month')
+
+# Set the x-axis labels to the month names
+plt.xticks(
+    ticks=range(12),
+    labels=[calendar.month_name[i+1] for i in range(12)],
+    rotation=45  # Rotate for better readability
+)
+
+# Adjust x-axis to cover all months
+plt.xlim(-0.5, 11.5)
+
+# Display the plot
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/6d28f9c6-7a4c-4cce-a8a6-00f68969dc9c)
+
+##### January, May, and June saw the highest number of music released per month.
+##### We may observe that the quantity of tracks released in a given year or month does not follow any trends.
+
+### Genre and Music Characteristic
+#### Correlation between streams and musical attributes
+
+``` Python
+# Define musical attributes to focus on
+musical_attr = ['streams', 'bpm', 'danceability_%', 'valence_%', 'energy_%', 'acousticness_%', 'instrumentalness_%', 'liveness_%', 'speechiness_%']
+
+# Extract the data for these attributes into a new DataFrame
+df_musical_attr = df_spotify[musical_attr]
+
+# Compute correlation matrix for the musical attributes
+corr_music_attr = df_musical_attr.corr()
+
+# Use a clustermap to visualize the correlations with hierarchical clustering
+sns.clustermap(corr_music_attr, annot=True, cmap='coolwarm', vmin=-1, vmax=1, figsize=(10, 8))
+
+# Set the title for the cluster map
+plt.suptitle("Cluster Map of Streams & Different Music Attributes", y=1.05)
+
+# Show the plot
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/f074f6aa-a2bc-454d-972c-4adbc76bc53b)
+
+##### Using cluster map, we can see the correlation between the streams and musical attributes
+
+### Platform Popularity
+
+
+
+
+
 
 
 
