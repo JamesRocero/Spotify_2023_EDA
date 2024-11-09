@@ -1,6 +1,6 @@
 # Spotify_2023_EDA
 
- Markup: [1. Importing Necessary Libraries](#1. Importing Necessary Libraries "1. Importing Necessary Libraries")
+[1. Importing Necessary Libraries](#1. Importing Necessary Libraries "1. Importing Necessary Libraries")
 
 ### 1. Importing Necessary Libraries
 ``` Python
