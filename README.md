@@ -1,8 +1,9 @@
 # Spotify_2023_EDA
-
-[1. Importing Necesary Libraries](#1.-importing-necesary-libraries "Goto 1.-importing-necesary-libraries")
-[2. Loading Data Set](#2.-loading-data-set "Goto 2.-loading-data-set")
-[3. Overview of the Data Set](#3.-overview-of-the-data-set "Goto 3.-overview-of-the-data-set")
+<details>
+           <summary>Introduction</summary>
+           <p> - [Overview of the Data Set](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#3-overview-of-the-data-set)</p>
+         </details>
+- [
 - [Overview of the Data Set](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#3-overview-of-the-data-set)
 
 ### 1. Importing Necessary Libraries
