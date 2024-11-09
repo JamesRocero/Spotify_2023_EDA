@@ -1,8 +1,9 @@
 # Spotify_2023_EDA
-## Table of Contents
+## Table of Contents:
 - [1. Importing Necessary Libraries](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#1-importing-necessary-libraries)
-- [2. Loading Data Set]
+- [2. Loading Data Set](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#2-loading-data-set)
 - [3. Overview of the Data Set](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#3-overview-of-the-data-set)
+- 
 
 ### 1. Importing Necessary Libraries
 ``` Python
@@ -577,3 +578,6 @@ plt.show()
 
 ##### It is shown in the graph the artists that consistently appear in more playlists or charts.
 ##### The plot shown here is the Total Chart Occurrences from all the playlist or charts.
+
+<h3>HTML</h3>
+<p> Some HTML code here </p>
