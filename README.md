@@ -602,3 +602,5 @@ plt.show()
 
 ##### It is shown in the graph the artists that consistently appear in more playlists or charts.
 ##### The plot shown here is the Total Chart Occurrences from all the playlist or charts.
+
+[Go Back to the Top :)](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#spotify_2023_eda)
