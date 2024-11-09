@@ -11,6 +11,7 @@
 - [9. Advanced Analysis](https://github.com/JamesRocero/Spotify_2023_EDA/blob/main/README.md#9-advanced-analysis)
 
 ---
+
 ### 1. Importing Necessary Libraries
 ``` Python
 import numpy as np
@@ -19,6 +20,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import calendar
 ```
+
+---
+
 ### 2. Loading Data Set
 - This code reads a CSV file named spotify-2023.csv into a pandas DataFrame called df_spotify.
 ``` Python
@@ -28,6 +32,8 @@ df_spotify
 ![image](https://github.com/user-attachments/assets/02fed677-2962-43e3-8d22-5d8eedcf6807)
 
 ##### After loading the data above, the df_spotify DataFrame is displayed, which will show the contents of the file.
+
+  ---
   
 ### 3. Overview of the Data Set
 ``` Python
@@ -152,6 +158,8 @@ df_spotify.iloc[574]
 
 ![image](https://github.com/user-attachments/assets/1456899e-97fd-478e-9878-ceb43760817d)
 
+---
+
 ### 4. Data Descriptive Statistics
 
 #### Total streams of the most streamed spotify song
@@ -270,6 +278,8 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/bbfd9d19-fe2d-4f09-ac85-cfbf09e773f4)
 
+---
+
 ### 5. Top Performers
 
 ##### The top 5 most streamed tracks (highest number of streams)
@@ -335,6 +345,8 @@ plt.show()
 ```
 
 ![image](https://github.com/user-attachments/assets/d6a21b43-312d-4e47-afa7-4fb667a675d9)
+
+---
 
 ### 6. Temporal Trends
 
@@ -406,6 +418,8 @@ plt.show()
 ##### January, May, and June saw the highest number of music released per month.
 ##### We may observe that the quantity of tracks released in a given year or month does not follow any trends.
 
+---
+
 ### 7. Genre and Music Characteristic
 
 #### Correlation between streams and musical attributes
@@ -433,6 +447,8 @@ plt.show()
 ![image](https://github.com/user-attachments/assets/f074f6aa-a2bc-454d-972c-4adbc76bc53b)
 
 ##### Using cluster map, we can see the correlation between the streams and musical attributes
+
+---
 
 ### 8. Platform Popularity
 
@@ -480,6 +496,8 @@ plt.show()
 
 ##### We can see that the spotif platform seems to favor the most popular tracks.
 ##### It has 4,336,536 million total playlist occurences compared to the other playlist that only have 137,599 in dezzer playlists, and 73,420 on apple playlists
+
+---
 
 ### 9. Advanced Analysis
 
