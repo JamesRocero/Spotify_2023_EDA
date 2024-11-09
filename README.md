@@ -140,7 +140,8 @@ df_spotify.iloc[574]
 
 ![image](https://github.com/user-attachments/assets/1456899e-97fd-478e-9878-ceb43760817d)
 
-### 5. Data Descriptive Statistics
+### 4. Data Descriptive Statistics
+
 #### Total streams of the most streamed spotify song
 ``` Python
 "The 2023 Spotify song that has received the most streams overall is " + str(df_spotify['streams'].sum())
@@ -257,7 +258,8 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/bbfd9d19-fe2d-4f09-ac85-cfbf09e773f4)
 
-### 6. Top Performers
+### 5. Top Performers
+
 ##### The top 5 most streamed tracks (highest number of streams)
 - This code sorts the df_spotify dataset by the 'streams' column in descending order and then selects the 'track_name', 'artist(s)_name', and 'streams' columns. It displays the first 5 rows of the sorted data, showing the top tracks with the highest number of streams.
 ``` Python
@@ -322,7 +324,8 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/d6a21b43-312d-4e47-afa7-4fb667a675d9)
 
-### 7. Temporal Trends
+### 6. Temporal Trends
+
 #### Number of tracks released per year
 ``` Python
 # Count the number of tracks released each year
@@ -391,7 +394,8 @@ plt.show()
 ##### January, May, and June saw the highest number of music released per month.
 ##### We may observe that the quantity of tracks released in a given year or month does not follow any trends.
 
-### 8. Genre and Music Characteristic
+### 7. Genre and Music Characteristic
+
 #### Correlation between streams and musical attributes
 
 ``` Python
@@ -418,7 +422,56 @@ plt.show()
 
 ##### Using cluster map, we can see the correlation between the streams and musical attributes
 
-### 9. Platform Popularity
+### 8. Platform Popularity
+
+``` Python
+# Selecting platform playlist columns
+platform_playlists = ['in_spotify_playlists', 'in_deezer_playlists', 'in_apple_playlists']
+
+# Step 1: Ensure all values are numeric, convert if possible, and drop rows with any invalid values.
+for column in platform_playlists:
+    df_spotify[column] = pd.to_numeric(df_spotify[column], errors='coerce')
+
+# Remove any rows with NaN values in the selected columns
+df_spotify_cleaned = df_spotify.dropna(subset=platform_playlists)
+
+# Step 2: Calculate the sum of each platform's playlist occurrences
+playlist_sums = df_spotify_cleaned[platform_playlists].sum()
+
+# Step 3: Create a DataFrame for plotting
+playlist_counts = pd.DataFrame({
+    'Platform': platform_playlists,
+    'Total Occurrences': playlist_sums.values
+})
+
+# Step 4: Plotting
+plt.figure(figsize=(8, 5))
+
+# Use 'hue' for platform instead of 'palette' directly to fix the warning
+sns.barplot(data=playlist_counts, x='Platform', y='Total Occurrences', hue='Platform', palette='Blues')
+
+# Add labels and title
+plt.title("Playlist Occurrences by Platform", fontsize=14)
+plt.xlabel("Platform Playlist", fontsize=12)
+plt.ylabel("Total Occurrences", fontsize=12)
+
+# Annotate the bars with the total occurrences
+for index, value in enumerate(playlist_counts['Total Occurrences']):
+    plt.text(index, value + 0.05 * value, f'{int(value)}', ha='center', va='bottom', fontsize=10)
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/33f30584-f188-4c51-b475-0b9ac7497a25)
+
+##### We can see that the spotif platform seems to favor the most popular tracks.
+##### It has 4,336,536 million total playlist occurences compared to the other playlist that only have 137,599 in dezzer playlists, and 73,420 on apple playlists
+
+### 9. Advanced Analysis
+
+#### Patterns between songs in the same key or mode (Major vs. Minor)
 
 
 
